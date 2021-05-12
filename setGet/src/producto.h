@@ -9,31 +9,12 @@
 #define PRODUCTO_H_
 
 #define TAM_DESC 50
-#define TAM_NAC 50
-#define TAM_TIPO 50
-#define TAM_MARCA 50
-#define TAM_FABR 50
-#define TAM_TELA 50
 
 /*idProducto (numérico)
 ·       descripción (alfanumérico)
 ·       nacionalidad (teniendo en cuenta que cada país tiene su propio Id y descripción con su nombre)
 ·       tipo (teniendo en cuenta de que este puede tener más características: Id, Marca, Fabrica y tipo de tela.)
 ·       precio por unidad (numérico decimal)*/
-
-typedef struct
-{
-	int idNacionalidad;
-	char descNac[TAM_NAC];
-}Nacionalidad;
-
-typedef struct
-{
-	int idTipo;
-	char marca[TAM_MARCA];
-	char fabrica[TAM_FABR];
-	char tela[TAM_TELA];
-}Tipo;
 
 typedef struct
 {
@@ -45,21 +26,29 @@ typedef struct
 }Producto;
 
 Producto* producto_new(void);
-Producto* producto_newParam(char* nombre,char* apellido,char* dni,int idEmpleado);
+Producto* producto_newParam(int idProducto, char* descripcion, Nacionalidad* nac, Tipo* tipo, float precioUnitario);
 
 int producto_delete(Producto* this);
+
+int producto_setIdProducto(Producto* this, int idProducto);
+int producto_getIdProducto(Producto* this,int* flagError);
+int isValidIdProducto(char*);
 
 int producto_setDescripcion(Producto* this, char* descripcion);
 char* producto_getDescripcion(Producto* this,int* flagError);
 int isValidDescripcion(char*);
 
-int producto_setApellido(Producto* this,char* apellido);
-char* producto_getApellido(Producto* this,int* flagError);
-int isValidApellido(char*);
+int producto_setNacionalidad(Producto* this, Nacionalidad* nac);
+char* producto_getNacionalidad(Producto* this,int* flagError);
+int isValidNacionalidad(Nacionalidad*);
 
-int producto_setIdProducto(Producto* this,char* idProducto);
-char* producto_getIdProducto(Producto* this,int* flagError);
-int isValidIdProducto(char*);
+int producto_setTipo(Producto* this, Tipo* tipo);
+char* producto_getTipo(Producto* this,int* flagError);
+int isValidTipo(Tipo*);
+
+int producto_setPrecioUnitario(Producto* this,char* idProducto);
+int producto_getPrecioUnitario(Producto* this,int* flagError);
+int isValidPrecioUnitario(char*);
 
 int empleado_setId(Empleado* this,int idEmpleado);
 int empleado_getId(Empleado* this,int* flagError);
