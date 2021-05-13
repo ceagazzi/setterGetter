@@ -39,21 +39,16 @@ char* producto_getDescripcion(Producto* this,int* flagError);
 int isValidDescripcion(char*);
 
 int producto_setNacionalidad(Producto* this, Nacionalidad* nac);
-char* producto_getNacionalidad(Producto* this,int* flagError);
+Nacionalidad* producto_getNacionalidad(Producto* this,int* flagError);
 int isValidNacionalidad(Nacionalidad*);
 
 int producto_setTipo(Producto* this, Tipo* tipo);
-char* producto_getTipo(Producto* this,int* flagError);
+Tipo* producto_getTipo(Producto* this,int* flagError);
 int isValidTipo(Tipo*);
 
 int producto_setPrecioUnitario(Producto* this,char* idProducto);
-int producto_getPrecioUnitario(Producto* this,int* flagError);
+float producto_getPrecioUnitario(Producto* this,int* flagError);
 int isValidPrecioUnitario(char*);
-
-int empleado_setId(Empleado* this,int idEmpleado);
-int empleado_getId(Empleado* this,int* flagError);
-int isValidId(int);
-
 
 
 #endif /* PRODUCTO_H_ */

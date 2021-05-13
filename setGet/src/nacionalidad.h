@@ -20,12 +20,12 @@ Nacionalidad* nacion_new(void);
 Nacionalidad* nacion_newParam(int idNacionalidad, char* descNac);
 int nacion_delete(Nacionalidad* this);
 
-int nacion_setIdNacionalidad(Producto* this, int idProducto);
-int nacion_getIdNacionalidad(Producto* this,int* flagError);
+int tipo_setIdNacionalidad(Nacionalidad* this, int idNacionalidad);
+int nacion_getIdNacionalidad(Nacionalidad* this,int* flagError);
 int isValidIdNacionalidad(int*);
 
-int nacion_setDescNac(Producto* this, char* descNac);
-int nacion_getDescNac(Producto* this,int* flagError);
+int nacion_setDescNac(Nacionalidad* this, char* descNac);
+int nacion_getDescNac(Nacionalidad* this,int* flagError);
 int isValidDescNac(char*);
 
 
